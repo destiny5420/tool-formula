@@ -1,6 +1,6 @@
 {
   "name": "@paperhsiao/formula",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "formula tool",
   "main": "dist/main.js",
   "scripts": {
