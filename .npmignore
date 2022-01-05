@@ -1,0 +1,10 @@
+.vscode
+/node_modules
+/src
+.eslintrc.js
+.gitignore
+.eslintignore
+.nvmrc
+.prettierrc.yaml
+gulpfile.js
+yarn.lock

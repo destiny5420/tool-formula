@@ -1,0 +1,36 @@
+{
+  "name": "@paperhsiao/formula",
+  "version": "0.1.1",
+  "description": "formula tool",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "gulp",
+    "test": "jest"
+  },
+  "keywords": [
+    "formula"
+  ],
+  "author": "paperhsiao",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/destiny5420/tool-formula"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^27.4.6",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2"
+  }
+}
