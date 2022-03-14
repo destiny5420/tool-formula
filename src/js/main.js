@@ -69,4 +69,31 @@ const Maths = {
   },
 }
 
-module.exports = { Format, Maths }
+const Fundraising = {
+  rateFunction() {
+    // eslint-disable-next-line prefer-rest-params
+    const dataArray = [].slice.call(arguments)
+    return function (value) {
+      for (let i = 0; i < dataArray.length; i += 1) {
+        if (i === dataArray.length - 1 && value / dataArray[i].value > 1) {
+          return 100
+        }
+
+        if (value <= dataArray[i].value) {
+          const lastValue = i === 0 ? 0 : dataArray[i - 1].value
+          const lastRate = i === 0 ? 0 : dataArray[i - 1].rate
+
+          return (
+            ((value - lastValue) / (dataArray[i].value - lastValue)) *
+              (dataArray[i].rate - lastRate) +
+            lastRate
+          )
+        }
+      }
+
+      return -1
+    }
+  },
+}
+
+module.exports = { Format, Maths, Fundraising }
