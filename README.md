@@ -27,6 +27,7 @@ import formula from '@paperhsiao/formula'
 ## 現在有的 function？
 
 ```javascript
+/* === Format ===*/
 const format = formula.Format
 
 // addComma
@@ -52,6 +53,7 @@ format.stringBy000(-1000) // "000"
 format.stringBy000(-100) // "000"
 format.stringBy000(-10) // "000"
 
+/*=== Maths ===*/
 const maths = formula.Maths
 
 // remap
@@ -62,4 +64,13 @@ maths.remap(5, 0, 10, 20, 1000) // 510
 maths.clamp(-1, 50, 100) // 50
 maths.clamp(77, 50, 100) // 77
 maths.clamp(102, 50, 100) // 100
+
+/*=== Fundraising ===*/
+const fundraising = formula.Fundraising
+const goal1 = { value: 5000000, rate: 33 }
+const goal2 = { value: 7000000, rate: 66 }
+const goal3 = { value: 10000000, rate: 100 }
+
+const getRate = fundraising.rateFunction(goal1, goal2, goal3)
+const progress = getRate(money)
 ```
