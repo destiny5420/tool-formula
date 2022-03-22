@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 const Format = {
   addComma(val) {
     return Number(val)
@@ -96,4 +98,10 @@ const Fundraising = {
   },
 }
 
-module.exports = { Format, Maths, Fundraising }
+const Event = {
+  jqCustomEvent(type, data) {
+    return $.extend($.Event(type || '', data || {}))
+  },
+}
+
+module.exports = { Format, Maths, Fundraising, Event }
