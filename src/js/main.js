@@ -104,4 +104,30 @@ const Event = {
   },
 }
 
-module.exports = { Format, Maths, Fundraising, Event }
+const Loader = {
+  css(href, rel) {
+    const linkElement = window.document.createElement('link')
+    const tagHead = window.document.getElementsByTagName('head')[0]
+
+    if (rel) {
+      linkElement.rel = rel
+    }
+
+    linkElement.href = href
+
+    linkElement.media = 'only x'
+    tagHead.parentNode.insertBefore(linkElement, tagHead)
+    setTimeout(function () {
+      linkElement.media = 'all'
+    }, 0)
+  },
+  video(className = '.js-preload-video', dataValue = 'data-videoUrl') {
+    const videos = document.querySelectorAll(className)
+    videos.forEach((e) => {
+      const url = e.getAttribute(dataValue)
+      e.src = url
+    })
+  },
+}
+
+module.exports = { Format, Maths, Fundraising, Event, Loader }
