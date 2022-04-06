@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 const Format = {
   addComma(val) {
     return Number(val)
@@ -96,4 +98,60 @@ const Fundraising = {
   },
 }
 
-module.exports = { Format, Maths, Fundraising }
+const Event = {
+  jqCustomEvent(type, data) {
+    return $.extend($.Event(type || '', data || {}))
+  },
+}
+
+const Loader = {
+  css(href, rel) {
+    const linkElement = window.document.createElement('link')
+    const tagHead = window.document.getElementsByTagName('head')[0]
+
+    if (rel) {
+      linkElement.rel = rel
+    }
+
+    linkElement.href = href
+
+    linkElement.media = 'only x'
+    tagHead.parentNode.insertBefore(linkElement, tagHead)
+    setTimeout(function () {
+      linkElement.media = 'all'
+    }, 0)
+  },
+  video(className = '.js-preload-video', dataValue = 'data-videoUrl') {
+    const videos = document.querySelectorAll(className)
+    videos.forEach((e) => {
+      const url = e.getAttribute(dataValue)
+      e.src = url
+    })
+  },
+  image(
+    className = '.js-preload-img',
+    isMobile = false,
+    dataValueDesktop = 'data-imgUrlD',
+    dataValueMobile = 'data-imgUrlM',
+  ) {
+    const data = document.querySelectorAll(className)
+    data.forEach((e) => {
+      const url = isMobile ? e.getAttribute(dataValueMobile) : e.getAttribute(dataValueDesktop)
+      e.src = url
+    })
+  },
+  backgroundImage(
+    className = '.js-preload-bg',
+    isMobile = false,
+    dataValueDesktop = 'data-imgUrlD',
+    dataValueMobile = 'data-imgUrlM',
+  ) {
+    const data = document.querySelectorAll(className)
+    data.forEach((e) => {
+      const url = isMobile ? e.getAttribute(dataValueMobile) : e.getAttribute(dataValueDesktop)
+      e.style.backgroundImage = `url('${url}')`
+    })
+  },
+}
+
+module.exports = { Format, Maths, Fundraising, Event, Loader }

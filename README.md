@@ -2,23 +2,21 @@
 
 # Formula
 
-- 有太多專案需要使用到格式化的功能，因此建立一個 npm 讓未來方便導入
+Integrate some commonly used formatting function
 
-## 安裝 & 文件
+# 🚀 Getting started
 
-#### NPM
-
-```bash
-npm install @paperhsiao/formula
-```
-
-#### YARN
+## Installation
 
 ```bash
+npm install @paperhsiao/formula --save
+
+# or
+
 yarn add @paperhsiao/formula
 ```
 
-你可以將它像這樣的方式引入你的專案
+## Usage
 
 ```javascript
 import formula from '@paperhsiao/formula'
