@@ -128,6 +128,30 @@ const Loader = {
       e.src = url
     })
   },
+  image(
+    className = '.js-preload-img',
+    isMobile = false,
+    dataValueDesktop = 'data-imgUrlD',
+    dataValueMobile = 'data-imgUrlM',
+  ) {
+    const data = document.querySelectorAll(className)
+    data.forEach((e) => {
+      const url = isMobile ? e.getAttribute(dataValueMobile) : e.getAttribute(dataValueDesktop)
+      e.src = url
+    })
+  },
+  backgroundImage(
+    className = '.js-preload-bg',
+    isMobile = false,
+    dataValueDesktop = 'data-imgUrlD',
+    dataValueMobile = 'data-imgUrlM',
+  ) {
+    const data = document.querySelectorAll(className)
+    data.forEach((e) => {
+      const url = isMobile ? e.getAttribute(dataValueMobile) : e.getAttribute(dataValueDesktop)
+      e.style.backgroundImage = `url('${url}')`
+    })
+  },
 }
 
 module.exports = { Format, Maths, Fundraising, Event, Loader }
