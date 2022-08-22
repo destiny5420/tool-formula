@@ -1,11 +1,13 @@
 {
   "name": "@paperhsiao/formula",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "formula tool",
   "main": "dist/main.min.js",
   "scripts": {
     "build": "gulp",
-    "test": "jest"
+    "test": "jest",
+    "release": "npx standard-version",
+    "dev": "node playground.js"
   },
   "keywords": [
     "formula"
@@ -19,6 +21,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^7.2.0",
@@ -32,5 +35,10 @@
     "jquery": "^3.6.0",
     "prettier": "^2.2.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
