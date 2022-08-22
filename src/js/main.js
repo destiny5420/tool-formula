@@ -1,4 +1,6 @@
-import $ from 'jquery'
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-undef */
+// import $ from 'jquery'
 
 const Format = {
   addComma(val) {
@@ -36,29 +38,6 @@ const Format = {
 const Maths = {
   getDegree(value) {
     return (Math.PI / 180) * value
-  },
-  /**
-   *
-   * @param {timestamp} timeA 較遠的時間
-   * @param {timestamp} timeB 較近的時間
-   * @returns
-   */
-  getTimeLag(timeA, timeB, checkingNegative) {
-    const result = new Date(timeA - timeB)
-    let data = {
-      days: parseInt(Math.floor(result.getTime() / 3600000) / 24, 10),
-      hours: Math.floor(result.getTime() / 3600000) % 24,
-      minutes: result.getUTCMinutes(),
-      seconds: result.getUTCSeconds(),
-    }
-
-    if (checkingNegative) {
-      if (Object.values(data).some((element) => element < 0)) {
-        data = { days: 0, hours: 0, minute: 0, seconds: 0 }
-      }
-    }
-
-    return data
   },
   remap(value, low1, high1, low2, high2) {
     return low2 + ((value - low1) * (high2 - low2)) / (high1 - low1)
@@ -154,4 +133,34 @@ const Loader = {
   },
 }
 
-module.exports = { Format, Maths, Fundraising, Event, Loader }
+const Time = {
+  format(dateString) {
+    return new Date(dateString.replace(/-/g, '/'))
+  },
+  /**
+   *
+   * @param {timestamp} timeA far away time
+   * @param {timestamp} timeB far close time
+   * @param {keepValuePositive} keepValuePositive Don't get negative value.
+   * @returns
+   */
+  getLag(timeA, timeB, keepValuePositive) {
+    const result = new Date(timeA - timeB)
+    let data = {
+      days: parseInt(Math.floor(result.getTime() / 3600000) / 24, 10),
+      hours: Math.floor(result.getTime() / 3600000) % 24,
+      minutes: result.getUTCMinutes(),
+      seconds: result.getUTCSeconds(),
+    }
+
+    if (keepValuePositive) {
+      if (Object.values(data).some((element) => element < 0)) {
+        data = { days: 0, hours: 0, minute: 0, seconds: 0 }
+      }
+    }
+
+    return data
+  },
+}
+
+module.exports = { Format, Maths, Fundraising, Event, Loader, Time }
