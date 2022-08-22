@@ -6,7 +6,8 @@
   "scripts": {
     "build": "gulp",
     "test": "jest",
-    "release": "standard-version"
+    "release": "standard-version",
+    "dev": "node playground.js"
   },
   "keywords": [
     "formula"
