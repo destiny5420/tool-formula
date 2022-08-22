@@ -1,12 +1,12 @@
 {
   "name": "@paperhsiao/formula",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "formula tool",
   "main": "dist/main.min.js",
   "scripts": {
     "build": "gulp",
     "test": "jest",
-    "release": "standard-version",
+    "release": "npx standard-version",
     "dev": "node playground.js"
   },
   "keywords": [
