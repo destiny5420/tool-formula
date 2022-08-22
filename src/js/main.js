@@ -1,5 +1,3 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable no-undef */
 // import $ from 'jquery'
 
 const Format = {
